@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Security Attributes</title>
+</head>
+<body>
+    <h1>Secure Form Example</h1>
+    <form autocomplete="off">
+        <label>
+            Username: 
+            <input type="text" required>
+        </label>
+        <br><br>
+        <label>
+            Password: 
+            <input type="password" required>
+        </label>
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+    <p>
+        Note: Turning off autocomplete prevents browsers from saving sensitive data, improving security.
+    </p>
+</body>
+</html>
