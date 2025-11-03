@@ -1,0 +1,10 @@
+/* Q7.css - Simple UI components styled inside a card */
+body{ font-family: Arial, sans-serif; margin:0; padding:20px; background: linear-gradient(120deg,#f8fafc,#eef2ff); }
+.card{ max-width:720px; margin:40px auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 8px 24px rgba(16,24,40,0.08); }
+.ui-form{ display:flex; gap:12px; align-items:center; }
+.ui-form input[type="text"]{ flex:1; padding:10px 12px; border-radius:8px; border:1px solid #e6e9ef; }
+.controls{ display:flex; gap:10px; align-items:center; }
+.btn{ padding:10px 14px; border-radius:8px; background:#1e88e5; color:#fff; border:none; cursor:pointer; }
+.ui-form input:focus, .ui-form select:focus, .btn:focus{ outline: 3px solid rgba(30,136,229,0.14); outline-offset:3px; }
+/* subtle hover */
+.btn:hover{ transform: translateY(-2px); box-shadow:0 8px 18px rgba(30,136,229,0.12); }

@@ -1,0 +1,22 @@
+/* Q4.css - Demonstrates element, class, ID, attribute selectors and combinators */
+
+/* Element selector - styles all paragraphs */
+p { color: #222; line-height:1.5; }
+
+/* Class selector */
+.highlight { background: #fff8cc; padding:6px; border-radius:4px; }
+
+/* ID selector */
+#unique { font-weight:700; border-left:4px solid #ffd166; padding-left:8px; }
+
+/* Attribute selector - matches hrefs starting with https */
+a[href^="https"] { color:#0a66c2; text-decoration:underline; }
+
+/* Child combinator - direct children of div */
+div > p { margin:6px 0; }
+
+/* Adjacent sibling combinator (p + p) example */
+p + p { color: #555; }
+
+/* General sibling combinator (~): style any following siblings */
+.sibling ~ p { opacity: 0.9; }

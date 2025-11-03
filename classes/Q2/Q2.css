@@ -1,0 +1,51 @@
+/* Q2.css - Tooltip demo using position absolute and opacity transitions */
+body { font-family: Arial, sans-serif; padding: 20px; }
+.center { display:flex; gap:24px; justify-content:center; align-items:center; flex-wrap:wrap; min-height:60vh; }
+
+.tooltip-wrap { position: relative; display:inline-block; }
+
+.tooltip-target { padding:8px 12px; background:#f0f0f0; border-radius:6px; cursor:default; outline:none; }
+
+/* Tooltip hidden by default */
+.tooltip {
+  position: absolute;
+  bottom: 130%; /* place above */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20,20,20,0.9);
+  color: white;
+  padding:8px 10px;
+  border-radius:6px;
+  white-space:nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform-origin: bottom center;
+}
+
+/* Arrow using ::after */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(20,20,20,0.9) transparent transparent transparent;
+}
+
+/* Show tooltip on hover or focus (keyboard accessible) */
+.tooltip-wrap:hover .tooltip,
+.tooltip-wrap:focus-within .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+  pointer-events: auto;
+}
+
+/* Ensure tooltips are always readable above target */
+.tooltip { z-index: 10; }
+
+@media (max-width:700px) {
+  .center { flex-direction: column; }
+}

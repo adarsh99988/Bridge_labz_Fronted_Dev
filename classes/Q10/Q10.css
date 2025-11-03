@@ -1,0 +1,14 @@
+/* Q10.css - Mini UI layout using Flexbox */
+body{ font-family: Arial, sans-serif; margin:0; padding:20px; background:#f3f6fb; }
+.container{ display:flex; gap:20px; max-width:900px; margin:24px auto; align-items:flex-start; }
+.card{ flex:1; background:#fff; padding:20px; border-radius:10px; box-shadow:0 8px 24px rgba(16,24,40,0.06); }
+.card h2{ margin-top:0; }
+.card form{ display:flex; flex-direction:column; gap:12px; }
+.card input{ padding:10px; border-radius:8px; border:1px solid #e6e9ef; }
+.row{ display:flex; gap:12px; margin-top:8px; }
+.btn{ padding:10px 14px; border-radius:8px; border:none; background:#1e88e5; color:#fff; cursor:pointer; }
+.btn.secondary{ background:#6c757d; }
+.preview{ width:220px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.preview img{ border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+/* responsive: stack vertically on small screens */
+@media (max-width:800px){ .container{ flex-direction:column; } .preview{ width:100%; } }

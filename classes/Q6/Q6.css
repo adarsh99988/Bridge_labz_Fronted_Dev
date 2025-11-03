@@ -1,0 +1,18 @@
+/* Q6.css - @keyframes animations examples */
+body{ font-family: Arial, sans-serif; margin:0; padding:20px; }
+.anim-center{ display:flex; gap:24px; justify-content:center; align-items:center; min-height:60vh; flex-wrap:wrap; }
+
+/* Moving box */
+.box{ width:80px; height:80px; background:#1e88e5; border-radius:8px; animation: slide 2s ease-in-out infinite alternate; }
+/* Bouncing ball */
+.ball{ width:60px; height:60px; background:#f39c12; border-radius:50%; animation: bounce 1s cubic-bezier(.28,.84,.42,1) infinite; }
+/* Color changing text */
+.text{ font-weight:700; font-size:18px; animation: colorShift 4s ease-in-out infinite; }
+
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(100px); } }
+@keyframes bounce { 0%{ transform: translateY(0); } 50%{ transform: translateY(-40px); } 100%{ transform: translateY(0);} }
+@keyframes colorShift { 0%{ color:#1e88e5;} 50%{ color:#d81b60;} 100%{ color:#1e88e5;} }
+/* Use animation-delay and iteration-count in variations below */
+.box { animation-delay: 0s; animation-iteration-count: infinite; }
+.ball { animation-delay: 0.2s; animation-iteration-count: infinite; animation-direction: alternate; }
+.text { animation-delay: 0.5s; animation-iteration-count: infinite; }

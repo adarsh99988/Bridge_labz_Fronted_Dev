@@ -1,0 +1,12 @@
+/* Q8.css - Compare default box-sizing and border-box */
+body{ font-family: Arial, sans-serif; padding:20px; }
+.compare{ display:flex; gap:20px; justify-content:center; align-items:flex-start; flex-wrap:wrap; }
+.box{ width:300px; padding:30px; border:6px solid #1e88e5; background:#f7fbff; border-radius:8px; }
+/* default box-sizing (content-box) for first box */
+.default{ box-sizing: content-box; background:#fff8f0; }
+/* border-box for second box */
+.borderbox{ box-sizing: border-box; background:#f0fff7; }
+/* descriptive text */
+.box p{ margin:8px 0 0 0; color:#333; }
+/* responsive */
+@media (max-width:700px){ .compare{ flex-direction:column; align-items:center; } .box{ width:90%; } }

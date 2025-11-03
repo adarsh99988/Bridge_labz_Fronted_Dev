@@ -1,0 +1,39 @@
+/* Q1.css - Demonstrates :hover, :focus, :active, and :nth-child() */
+/* Layout: use Flexbox to align examples in one row */
+body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #222; }
+header h1 { margin: 0 0 16px 0; }
+
+.examples {
+  display: flex; /* align in a row */
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Example card styling */
+.example { background:#f7f7f7; padding:16px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); width: 300px; }
+
+/* Links: default and pseudo-classes */
+.example a { color: #0a66c2; text-decoration: none; transition: color .25s, background .25s; }
+.example a:hover { color: #084e8a; }
+.example a:active { color: #042e4d; }
+.example a:focus { outline: 2px dashed #ffb703; outline-offset: 4px; }
+/* Explanation text beside example included in HTML */
+
+/* Buttons: demonstrate :hover, :active, :focus */
+.btn { padding:10px 16px; border: none; background:#2b8a3e; color:#fff; border-radius:6px; cursor:pointer; transition: transform .12s, box-shadow .12s, background .12s; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(43,138,62,0.18); background:#247437; }
+.btn:active { transform: translateY(0); box-shadow: none; }
+.btn:focus { outline: 3px solid rgba(36,116,55,0.2); }
+
+/* List items: nth-child demo */
+.demo-list { list-style: none; padding:0; margin:8px 0 0 0; }
+.demo-list li { padding:8px; border-radius:4px; background: #fff; margin-bottom:6px; transition: background .2s; }
+.demo-list li:nth-child(odd) { background: #e9f5ff; }
+.demo-list li:hover { background: #d0ebff; }
+
+/* Responsive: stack vertically on small screens */
+@media (max-width:700px) {
+  .examples { flex-direction: column; align-items: stretch; }
+  .example { width: 100%; }
+}

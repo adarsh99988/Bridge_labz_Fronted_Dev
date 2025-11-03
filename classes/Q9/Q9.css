@@ -1,0 +1,7 @@
+/* Q9.css - Buttons that grow, change color and shadow on hover/focus/active */
+body{ font-family: Arial, sans-serif; padding:20px; }
+.examples{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+.example{ padding:12px 18px; border-radius:8px; border:none; background:#6a5acd; color:#fff; cursor:pointer; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; box-shadow:0 6px 16px rgba(106,90,205,0.18); }
+.example:hover{ transform: scale(1.06); background:#5946c8; box-shadow:0 12px 28px rgba(89,70,200,0.22); }
+.example:active{ transform: scale(0.98); box-shadow:0 4px 8px rgba(0,0,0,0.12); }
+.example:focus{ outline: 3px solid rgba(90,56,200,0.18); outline-offset:4px; }
