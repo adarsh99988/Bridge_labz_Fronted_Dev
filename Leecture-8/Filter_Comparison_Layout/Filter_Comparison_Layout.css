@@ -1,0 +1,12 @@
+/* Filter_Comparison_Layout.css */
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;margin:0;padding:20px;background:#fafafa}
+.compare{display:flex;gap:16px;max-width:1100px;margin:0 auto;align-items:flex-start}
+.compare figure{flex:1;background:#fff;border-radius:8px;overflow:hidden;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.compare img{width:100%;height:320px;object-fit:cover;transition:filter .4s ease}
+.filtered img{filter:brightness(60%);}
+/* on hover fade away filter */
+.filtered:hover img{filter:none}
+
+/* stack vertically below 700px */
+@media (max-width:700px){ .compare{flex-direction:column} .compare img{height:240px} }

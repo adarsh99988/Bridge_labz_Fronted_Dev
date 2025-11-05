@@ -1,0 +1,12 @@
+/* Responsive_Typography.css */
+*{box-sizing:border-box}
+body{font-family:Georgia, 'Times New Roman', serif;margin:0;padding:40px;background:#fff;color:#111}
+.typography{max-width:900px;margin:0 auto;text-align:center;padding:20px}
+.typography h1{font-size:clamp(1.5rem,4vw,3rem);margin-bottom:16px}
+.typography p{font-size:clamp(1rem,2vw,1.5rem);line-height:1.8}
+
+/* below 700px adjust spacing */
+@media (max-width:700px){
+  .typography{padding:16px}
+  .typography p{line-height:1.5}
+}

@@ -1,0 +1,20 @@
+/* Responsive_Web_Design_Layout.css
+   - Flexbox header and three feature boxes that stack on small screens.
+*/
+*{box-sizing:border-box}
+body{font-family:system-ui,Arial,sans-serif;margin:0;padding:0;background:#f7f9fc;color:#111}
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:#0b5fff;color:#fff;position:sticky;top:0}
+.site-header .nav a{color:#fff;margin-left:16px;text-decoration:none;font-weight:600}
+
+/* features area */
+.features{display:flex;gap:16px;padding:40px;max-width:1100px;margin:0 auto;justify-content:center;align-items:stretch}
+.feature{flex:1;background:#fff;padding:24px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.06);text-align:center;transition:transform .25s}
+.feature:hover{transform:scale(1.03)}
+
+/* footer centered */
+footer{padding:16px;text-align:center;background:#eef4ff;margin-top:24px}
+
+/* stack features below 750px */
+@media (max-width:750px){
+  .features{flex-direction:column;padding:20px}
+}

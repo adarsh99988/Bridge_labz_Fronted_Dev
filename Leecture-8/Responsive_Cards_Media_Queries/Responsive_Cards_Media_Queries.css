@@ -1,0 +1,24 @@
+/* Responsive_Cards_Media_Queries.css
+   - Flexbox cards that change columns with media queries.
+*/
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;margin:0;background:#f8fbff;padding:24px}
+.cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+
+/* base card style */
+.card{flex:1 1 22%;min-width:200px;background:#fff;padding:20px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.05);text-align:center;transition:background .25s}
+
+/* desktop: 4 columns (handled by flex-basis) */
+
+/* tablet: 2 columns */
+@media (max-width:900px){
+  .card{flex:1 1 45%}
+}
+
+/* mobile: 1 column */
+@media (max-width:600px){
+  .card{flex:1 1 100%}
+}
+
+/* hover color change */
+.card:hover{background:#eef6ff}
