@@ -1,0 +1,26 @@
+/* Q10 style.css - Box Model and Positioning */
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial, sans-serif;background:#f7f9fc;color:#122}
+/* Sticky header */
+.topnav{position:sticky;top:0;background:rgba(11,95,255,0.95);color:#fff;padding:12px 20px}
+.topnav nav a{color:#fff;margin-right:12px;text-decoration:none;font-weight:700}
+/* Hero with background image and centered text */
+.hero{height:50vh;background-image:url('https://via.placeholder.com/1400x600');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.hero h1{font-size:2.8rem;background:rgba(0,0,0,0.25);padding:8px 12px;border-radius:6px}
+/* About section with two columns */
+.about-services{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:1fr;gap:24px}
+.about{display:flex;gap:16px;align-items:center}
+.about img{width:300px;border:8px solid rgba(11,95,255,0.08);border-radius:8px}
+.services{display:flex;gap:12px}
+.service{flex:1;background:#fff;padding:20px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 8px 18px rgba(16,24,40,0.06);border-radius:8px}
+.contact form{display:flex;flex-direction:column;gap:12px}
+.contact input{padding:10px;border-radius:8px;border:1px solid #e6e9ef}
+.contact button{padding:10px;background:linear-gradient(90deg, rgba(11,95,255,1), rgba(15,120,255,1));color:#fff;border:none;border-radius:8px}
+/* Demonstrate outline property */
+.contact input:focus{outline:3px solid rgba(11,95,255,0.12);outline-offset:4px}
+/* positioning examples: absolute element inside relative container */
+.about{position:relative}
+.about::after{content:'Info';position:absolute;right:12px;top:12px;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:6px;border:1px solid rgba(0,0,0,0.06)}
+/* responsive */
+@media (min-width:900px){ .about-services{grid-template-columns:1fr 1fr} .services{flex-direction:column} }

@@ -1,0 +1,15 @@
+/* Q5 style.css - Pricing table using flexbox */
+body{font-family:Arial, sans-serif; padding:40px; background:#f8fbff;}
+.pricing{ display:flex; gap:20px; max-width:1100px; margin:0 auto; }
+/* equal-height cards */
+.plan{ flex:1; background:#fff; padding:20px; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; border:1px solid #e6e9ef; transition: transform .2s ease, background .2s ease; }
+.plan:hover{ transform: scale(1.03); background:#f0f8ff; }
+/* Highlight popular */
+.plan.popular{ border:2px solid #0b5fff; background:#eef6ff; }
+/* Price and button */
+.price{ font-size:1.5rem; font-weight:800; margin:12px 0; }
+.btn{ display:inline-block; padding:10px 16px; background:#0b5fff; color:#fff; text-decoration:none; border-radius:8px; }
+/* Ensure equal height on varying content */
+.plan ul{ list-style: none; padding:0; margin:0; } 
+/* Responsive: stack */
+@media (max-width:700px){ .pricing{ flex-direction:column; } }

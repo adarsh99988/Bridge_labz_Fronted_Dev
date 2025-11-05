@@ -1,0 +1,10 @@
+/* Q8 style.css - Dashboard layout with fixed header and sidebar */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial, sans-serif;background:#f5f7fb;color:#111}
+.header{position:fixed;top:0;left:0;right:0;height:60px;background:#0b5fff;color:#fff;display:flex;align-items:center;padding:0 20px;z-index:1000}
+.layout{display:flex;padding-top:60px;min-height:calc(100vh - 60px)}
+.sidebar{width:220px;background:#fff;border-right:1px solid #e6e9ef;padding:20px;height:calc(100vh - 60px);position:sticky;top:60px;overflow:auto}
+.sidebar nav a{display:block;padding:10px 0;color:#0b5fff;text-decoration:none;font-weight:600}
+.main{flex:1;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{background:#fff;padding:20px;border-radius:8px;box-shadow:0 10px 24px rgba(16,24,40,0.06)}
+@media (max-width:800px){ .layout{flex-direction:column} .sidebar{width:100%;height:auto;position:relative;top:0} .main{grid-template-columns:1fr} }

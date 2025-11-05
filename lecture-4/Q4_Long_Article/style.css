@@ -1,0 +1,15 @@
+/* Q4 style.css - Long article styling */
+body{font-family:Georgia, 'Times New Roman', serif; color:#111; line-height:1.8; padding:40px; background:#fbfbfb;}
+.post{ max-width:900px; margin:0 auto; background:#fff; padding:30px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+/* Meta */
+.meta{ color:#666; margin-top:6px; font-size:0.9rem; }
+/* Paragraph spacing */
+.content p{ margin: 16px 0; }
+/* First-letter larger */
+.content p::first-letter{ font-size:2.4rem; font-weight:700; float:left; line-height:1; padding-right:8px; }
+/* First-line bold */
+.content p::first-line{ font-weight:700; }
+/* Mark styling */
+.content mark{ background:#ffef99; padding:0 4px; border-radius:3px; }
+/* Blockquote emphasis */
+blockquote{ border-left:4px solid #ffd166; padding:12px 16px; background:#fff7e6; margin:20px 0; }

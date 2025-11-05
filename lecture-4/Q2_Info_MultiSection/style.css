@@ -1,0 +1,23 @@
+/* Q2 style.css - Multi-section informational page */
+/* simple layout */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial, sans-serif; color:#122; background:#fff;}
+.site-header{padding:1rem;text-align:center;background:#072a6b;color:#fff;}
+.nav{display:flex;gap:1rem;justify-content:center;padding:0.75rem;background:#f0f4ff;}
+.nav a{color:#072a6b;text-decoration:none;font-weight:600;}
+
+/* Sections each full-width with different backgrounds */
+.section{ min-height:60vh; display:flex; align-items:center; }
+.wrap{ max-width:1000px;margin:0 auto;padding:2rem; background:rgba(255,255,255,0.6); border-radius:8px; }
+
+.linear{ background: linear-gradient(135deg,#ffd194,#70e1f5); }
+.fixed-bg{ background-image: url('https://via.placeholder.com/1600x900'); background-size:cover; background-position:center; background-attachment: fixed; }
+.radial{ background: radial-gradient(circle at 20% 20%, #ffecd2, #fcb69f); }
+.fixed-bg-2{ background-image:url('https://via.placeholder.com/1200x800/ced4da'); background-size:cover; background-position:center; background-attachment:fixed; }
+
+.section h2{ margin-bottom:0.5rem; font-size:2rem; font-weight:700; }
+
+/* spacing and headings */
+.wrap p{ font-size:1rem; line-height:1.6; margin-top:0.5rem; }
+/* footer */
+.site-footer{ text-align:center;padding:1rem;background:#f7f9ff;margin-top:1rem;}
