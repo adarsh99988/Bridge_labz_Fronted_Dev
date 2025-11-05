@@ -1,0 +1,11 @@
+/* Q2 style.css - 4-column grid gallery */
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;padding:24px;background:#fafafa;color:#111}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6e9ef;display:flex;flex-direction:column;justify-content:space-between;min-height:160px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:scale(1.05);box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+.price{font-weight:800;margin-top:12px}
+
+/* Responsive: 2 columns on tablets, 1 on mobile */
+@media (max-width:900px){ .gallery{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:500px){ .gallery{grid-template-columns:1fr} }

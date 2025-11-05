@@ -1,0 +1,13 @@
+/* Q3 style.css - Header, Main, Footer using Flexbox */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;display:flex;flex-direction:column;min-height:100vh}
+.site-header{background:#0b5fff;color:#fff;padding:12px}
+.nav{display:flex;justify-content:space-around;align-items:center}
+.nav a{color:#fff;text-decoration:none;font-weight:600;cursor:pointer}
+.boxes{display:flex;gap:20px;padding:40px;justify-content:center;align-items:center;flex:1}
+.box{background:#fff;padding:40px;border-radius:8px;border:1px solid #e6e9ef;transition:transform .2s}
+.box:hover{transform:rotate(2deg)}
+.site-footer{background:#f1f5ff;text-align:center;padding:12px}
+
+/* Responsive stack */
+@media (max-width:700px){ .boxes{flex-direction:column;padding:20px} }
