@@ -1,7 +1,8 @@
-# 🎨 Frontend Development — College Lecture Series
+# 🎨 Frontend Development
 
 ### 👨‍🏫 *Guided by:* **Sahil Sir** & **Deepak Sir**
 > *“Design is intelligence made visible.”* — *Alina Wheeler*
+
 
 ---
 
@@ -13,7 +14,9 @@ This repository contains **lecture materials**, **assignments**, and **examples*
 
 Whether you’re crafting your first webpage or refining responsive layouts, this course ensures learning that’s **clear, practical, and enjoyable**.
 
+
 ---
+
 
 ## 🧭 Course Journey
 
@@ -26,7 +29,9 @@ Gain an understanding of how the Internet works and how websites are structured.
 - Setting up tools: *VS Code*, *Git*, *Live Server*
 - Understanding browsers and rendering engines
 
+
 ---
+
 
 ### 🟨 Lecture 2 — HTML Fundamentals
 Learn how to structure and organize content using HTML5.
@@ -37,7 +42,9 @@ Learn how to structure and organize content using HTML5.
 - Semantic HTML: `<header>`, `<nav>`, `<section>`, `<footer>`
 - Writing clean and accessible markup
 
+
 ---
+
 
 ### 🟦 Lecture 3 — Block & Inline Elements
 Understand how elements behave in layouts and how to control them.
@@ -49,7 +56,9 @@ Understand how elements behave in layouts and how to control them.
   - Inline: `<span>`, `<a>`, `<strong>`
 - Modifying element behavior using the CSS `display` property
 
+
 ---
+
 
 ### 🟧 Lecture 4 — HTML Iframes
 Embed external and interactive content seamlessly.
@@ -60,7 +69,9 @@ Embed external and interactive content seamlessly.
 - Security aspects: `sandbox`, `referrerpolicy`
 - Example: Embedding a YouTube video
 
+
 ---
+
 
 ### 🟥 Lecture 5 — CSS Basics
 Start styling web pages and making them visually appealing.
@@ -71,7 +82,9 @@ Start styling web pages and making them visually appealing.
 - Selectors and common styling properties
 - Colors, backgrounds, and borders
 
+
 ---
+
 
 ### 🟪 Lecture 6 — CSS Flexbox
 Master one of the most powerful layout systems in CSS.
@@ -81,7 +94,9 @@ Master one of the most powerful layout systems in CSS.
 - Child properties: `flex-grow`, `flex-shrink`, `flex-basis`
 - Real-world use cases: navbars, cards, and galleries
 
+
 ---
+
 
 ### 🟫 Lecture 7 — CSS Box Model
 Understand how elements take up space and how spacing affects layouts.
@@ -92,7 +107,9 @@ Understand how elements take up space and how spacing affects layouts.
 - Visual debugging using Chrome DevTools
 - Building consistent, balanced layouts
 
+
 ---
+
 
 ## 🎯 Learning Outcomes
 
@@ -104,7 +121,9 @@ By the end of this course, you will:
 ✅ Explain and use the CSS Box Model effectively  
 ✅ Collaborate using Git and GitHub for project management
 
+
 ---
+
 
 ## 🗂️ Repository Structure
 frontenddev/
