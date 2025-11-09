@@ -174,7 +174,7 @@ Their mentorship ensures you gain not just theoretical knowledge, but **real-wor
 
 ---
 
-## 💻 Designed with ❤️ Adarsh Tiwari
+## 💻 Designed with ❤️ by Adarsh Tiwari
 
 > *“Frontend isn’t just about writing code — it’s about creating experiences that connect technology and imagination.”*
 
