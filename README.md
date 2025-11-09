@@ -108,11 +108,11 @@ By the end of this course, you will:
 
 ## 🗂️ Repository Structure
 frontenddev/
-│
-├── 📘 Lectures/       → Topic-wise examples and notes
-├── 🧩 Assignments/    → Practice exercises and tasks
-├── 🧠 Examples/       → Reference designs and mini-projects
-└── 📄 README.md       → Course documentation
+•	📘 Lectures/ — Topic-wise examples and notes
+•	🧩 Assignments/ — Practice exercises and tasks
+•	🧠 Examples/ — Reference designs and mini-projects
+•	📄 README.md — Course documentation
+
 
 
 
