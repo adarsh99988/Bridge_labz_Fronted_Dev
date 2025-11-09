@@ -1,4 +1,4 @@
-🎨 Frontend Development
+🎨 Frontend Development — College Lecture Series
 Guided by: Sahil Sir & Deepak Sir
 “Design is intelligence made visible.” – Alina Wheeler
 ________________________________________
