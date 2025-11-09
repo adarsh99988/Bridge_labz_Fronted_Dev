@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <i>“Design is intelligence made visible.” – Alina Wheeler</i>
+  <i>“Design is intelligence made visible.” </i>
 </p>
 
 ---
