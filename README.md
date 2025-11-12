@@ -82,6 +82,19 @@ Here you’ll find:
 🎯 Design balance and consistency  
 
 ---
+ ## 📂 Task 
+
+Task covered during class sessions:
+
+| Project Name | Description |
+|---------------|-------------|
+| 🌐 **HTML Page** | Basic structured webpage demonstrating semantic tags |
+| 🍽️ **Zomato Clone** | Replica of Zomato’s homepage using HTML & CSS |
+| 🕒 **Timetable** | Weekly timetable layout using tables and styling |
+| 🧾 **Card Page** | A stylish card layout built using HTML & Flexbox |
+| 🧮 **Calculator** | Interactive calculator using HTML, CSS, and JavaScript |
+| 💫 **Animation Page** | CSS animations and keyframes for smooth effects |
+| 🖱️ **Hover Effects** | Interactive hover transitions and animations |
 
 ## 🎯 Learning Outcomes  
 
