@@ -82,7 +82,7 @@ Here you’ll find:
 🎯 Design balance and consistency  
 
 ---
- ## 📂 Task 
+ ## 📂 Task Provided
 
 Task covered during class sessions:
 
