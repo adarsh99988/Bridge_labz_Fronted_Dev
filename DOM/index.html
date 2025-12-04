@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>JS Exercises - GIP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>JS Exercises Bundle (1–9)</h1>
+
+  <section id="q1" class="card">
+    <h2>1. Dynamic Product List Manager</h2>
+    <input id="productInput" placeholder="Add product and press Enter" />
+    <ul id="productList"></ul>
+  </section>
+
+  <section id="q2" class="card">
+    <h2>2. Live Character Counter</h2>
+    <textarea id="charArea" maxlength="100" placeholder="Type up to 100 chars"></textarea>
+    <div id="charCounter">100 characters remaining</div>
+    <button id="resetBtn">Reset</button>
+  </section>
+
+  <section id="q3" class="card">
+    <h2>3. Multi-Step Form</h2>
+    <div class="steps" id="stepContainer">
+      <div class="step" data-step="1">
+        <label>Name: <input id="nameInput" /></label>
+        <div class="error" id="nameErr"></div>
+      </div>
+      <div class="step" data-step="2" hidden>
+        <label>Email: <input id="emailInput" /></label>
+        <div class="error" id="emailErr"></div>
+      </div>
+      <div class="step" data-step="3" hidden>
+        <label>Password: <input id="passInput" type="password" /></label>
+        <div class="error" id="passErr"></div>
+      </div>
+      <div class="step-controls">
+        <button id="backBtn" disabled>Back</button>
+        <button id="nextBtn">Next</button>
+      </div>
+      <div id="summary" hidden></div>
+    </div>
+  </section>
+
+  <section id="q4" class="card">
+    <h2>4. Theme Switcher</h2>
+    <div class="theme-buttons">
+      <button data-theme="light" class="themeBtn">Light</button>
+      <button data-theme="dark" class="themeBtn">Dark</button>
+      <button data-theme="blue" class="themeBtn">Blue</button>
+    </div>
+    <p>Current theme stored in <code>data-theme</code> on &lt;body&gt;</p>
+  </section>
+
+  <section id="q5" class="card">
+    <h2>5. Image Gallery with Modal</h2>
+    <div id="gallery" class="grid"></div>
+    <div id="modal" class="modal" hidden><div class="modal-inner"><img id="modalImg" alt="preview"><p class="hint">Click outside to close</p></div></div>
+  </section>
+
+  <section id="q6" class="card">
+    <h2>6. Real-Time Table Filter</h2>
+    <input id="searchBox" placeholder="Search students..." />
+    <table id="studentTable">
+      <thead><tr><th>Name</th><th>Branch</th><th>CGPA</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div id="noResults" hidden>No results found</div>
+  </section>
+
+  <section id="q7" class="card">
+    <h2>7. Mouse Path & Coordinates Logger</h2>
+    <div id="box" class="box"></div>
+    <div id="coords">Move inside the box</div>
+  </section>
+
+  <section id="q8" class="card">
+    <h2>8. Custom Dropdown</h2>
+    <div class="dropdown" id="customDropdown">
+      <button id="dropBtn">Choose an option</button>
+      <ul id="dropList" class="options" hidden>
+        <li data-value="1">Option 1</li>
+        <li data-value="2">Option 2</li>
+        <li data-value="3">Option 3</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="q9" class="card">
+    <h2>9. Form Submit Blocker</h2>
+    <form id="blockForm" novalidate>
+      <label>Name: <input name="name" id="fName" required></label><div class="error" id="fNameErr"></div>
+      <label>Email: <input name="email" id="fEmail" required></label><div class="error" id="fEmailErr"></div>
+      <label>Password: <input name="password" id="fPass" type="password" required></label><div class="error" id="fPassErr"></div>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="formMsg" hidden></div>
+  </section>
+
+  <script src="q1.js"></script>
+  <script src="q2.js"></script>
+  <script src="q3.js"></script>
+  <script src="q4.js"></script>
+  <script src="q5.js"></script>
+  <script src="q6.js"></script>
+  <script src="q7.js"></script>
+  <script src="q8.js"></script>
+  <script src="q9.js"></script>
+</body>
+</html>
