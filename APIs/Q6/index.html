@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q6 - User Registration With Duplicate Check</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form { max-width: 400px; }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 4px; }
+    button { margin-top: 10px; padding: 8px 16px; }
+    .message { margin-top: 10px; }
+    .error { color: #c00; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <h1>User Registration</h1>
+  <form id="reg-form">
+    <label>
+      Name:
+      <input type="text" id="name" required>
+    </label>
+    <label>
+      Email:
+      <input type="email" id="email" required>
+    </label>
+    <label>
+      Password:
+      <input type="password" id="password" required>
+    </label>
+    <button type="submit">Register</button>
+  </form>
+  <div id="msg" class="message"></div>
+
+  <script>
+    const API_URL = "http://localhost:3006/users";
+
+    document.getElementById("reg-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const msg = document.getElementById("msg");
+      msg.textContent = "";
+      msg.className = "message";
+
+      if (!name || !email || !password) {
+        msg.textContent = "All fields are required.";
+        msg.classList.add("error");
+        return;
+      }
+
+      axios.get(API_URL, { params: { email: email } })
+        .then(response => {
+          if (response.data && response.data.length > 0) {
+            msg.textContent = "Email already registered.";
+            msg.classList.add("error");
+          } else {
+            return axios.post(API_URL, { name, email, password });
+          }
+        })
+        .then(res => {
+          if (!res) return;
+          msg.textContent = "Registration successful!";
+          msg.classList.remove("error");
+          msg.classList.add("success");
+          document.getElementById("reg-form").reset();
+        })
+        .catch(err => {
+          msg.textContent = "An error occurred while registering.";
+          msg.classList.add("error");
+        });
+    });
+  </script>
+</body>
+</html>

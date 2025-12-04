@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q3 - Task Manager With Filters</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .task { border: 1px solid #ccc; padding: 8px; margin-bottom: 5px; border-radius: 4px; }
+    .completed { text-decoration: line-through; opacity: 0.6; }
+    label { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Task Manager</h1>
+  <label for="filter">Filter:</label>
+  <select id="filter">
+    <option value="">All</option>
+    <option value="Low">Low Priority</option>
+    <option value="Medium">Medium Priority</option>
+    <option value="High">High Priority</option>
+    <option value="Completed">Completed</option>
+  </select>
+
+  <div id="tasks"></div>
+
+  <script>
+    const API_URL = "http://localhost:3003/tasks";
+
+    function loadTasks() {
+      const filter = $("#filter").val();
+      let params = {};
+
+      if (filter === "Completed") {
+        params.completed = true;
+      } else if (filter) {
+        params.priority = filter;
+      }
+
+      $.ajax({
+        url: API_URL,
+        method: "GET",
+        data: params,
+        success: function(data) {
+          renderTasks(data);
+        },
+        error: function() {
+          $("#tasks").html("<p>Error loading tasks</p>");
+        }
+      });
+    }
+
+    function renderTasks(tasks) {
+      const $container = $("#tasks");
+      $container.empty();
+
+      if (!tasks.length) {
+        $container.html("<p>No tasks found.</p>");
+        return;
+      }
+
+      tasks.forEach(task => {
+        const $task = $(`
+          <div class="task ${task.completed ? "completed" : ""}">
+            <input type="checkbox" class="toggle-completed" data-id="${task.id}" ${task.completed ? "checked" : ""}>
+            <strong>${task.title}</strong> - <em>${task.priority} priority</em>
+          </div>
+        `);
+        $container.append($task);
+      });
+    }
+
+    function toggleCompleted(id, completed) {
+      $.ajax({
+        url: API_URL + "/" + id,
+        method: "PATCH",
+        contentType: "application/json",
+        data: JSON.stringify({ completed: completed }),
+        complete: function() {
+          loadTasks();
+        }
+      });
+    }
+
+    $(document).ready(function() {
+      loadTasks();
+
+      $("#filter").on("change", function() {
+        loadTasks();
+      });
+
+      $("#tasks").on("change", ".toggle-completed", function() {
+        const id = $(this).data("id");
+        const completed = $(this).is(":checked");
+        toggleCompleted(id, completed);
+      });
+    });
+  </script>
+</body>
+</html>

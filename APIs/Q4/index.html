@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q4 - Multi-API Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .card-container { display: flex; gap: 20px; }
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 4px;
+      width: 180px;
+      text-align: center;
+    }
+    .skeleton {
+      background: #eee;
+      height: 24px;
+      margin: 10px 0;
+      border-radius: 4px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .warning { color: #b36b00; margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Multi-API Dashboard</h1>
+  <div class="card-container">
+    <div class="card">
+      <h3>Total Users</h3>
+      <div id="users-count" class="skeleton"></div>
+    </div>
+    <div class="card">
+      <h3>Total Orders</h3>
+      <div id="orders-count" class="skeleton"></div>
+    </div>
+    <div class="card">
+      <h3>Total Products</h3>
+      <div id="products-count" class="skeleton"></div>
+    </div>
+  </div>
+  <div id="warning" class="warning"></div>
+
+  <script>
+    const BASE_URL = "http://localhost:3004";
+
+    function setSkeleton() {
+      document.getElementById("users-count").className = "skeleton";
+      document.getElementById("orders-count").className = "skeleton";
+      document.getElementById("products-count").className = "skeleton";
+    }
+
+    function removeSkeleton(id, value) {
+      const el = document.getElementById(id);
+      el.className = "";
+      el.textContent = value;
+    }
+
+    function loadDashboard() {
+      setSkeleton();
+      const usersPromise = fetch(BASE_URL + "/users").then(res => {
+        if (!res.ok) throw new Error("Users failed");
+        return res.json();
+      });
+      const ordersPromise = fetch(BASE_URL + "/orders").then(res => {
+        if (!res.ok) throw new Error("Orders failed");
+        return res.json();
+      });
+      const productsPromise = fetch(BASE_URL + "/products").then(res => {
+        if (!res.ok) throw new Error("Products failed");
+        return res.json();
+      });
+
+      let failed = false;
+
+      Promise.all([usersPromise.catch(e => { failed = true; return []; }),
+                   ordersPromise.catch(e => { failed = true; return []; }),
+                   productsPromise.catch(e => { failed = true; return []; })])
+        .then(([users, orders, products]) => {
+          removeSkeleton("users-count", users.length);
+          removeSkeleton("orders-count", orders.length);
+          removeSkeleton("products-count", products.length);
+
+          if (failed) {
+            document.getElementById("warning").textContent =
+              "Some data could not be loaded.";
+          }
+        })
+        .catch(() => {
+          document.getElementById("warning").textContent =
+            "Some data could not be loaded.";
+        });
+    }
+
+    loadDashboard();
+  </script>
+</body>
+</html>

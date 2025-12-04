@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q1 - Product Live Search</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .search-box { margin-bottom: 10px; }
+    .product-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      border-radius: 4px;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+    #loading { display: none; font-size: 14px; color: #555; }
+    #message { margin-top: 10px; color: #c00; }
+  </style>
+</head>
+<body>
+  <h1>Real-Time Product Live Search</h1>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search products..." />
+    <span id="loading">Loading...</span>
+  </div>
+  <div id="results" class="product-list"></div>
+  <div id="message"></div>
+
+  <script>
+    const API_URL = "http://localhost:3001/products";
+
+    function renderProducts(products) {
+      const $results = $("#results");
+      const $message = $("#message");
+      $results.empty();
+      $message.text("");
+
+      if (!products.length) {
+        $message.text("No products found");
+        return;
+      }
+
+      products.forEach(p => {
+        const card = $(`
+          <div class="product-card">
+            <img src="${p.image}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>Price: ₹${p.price}</p>
+          </div>
+        `);
+        $results.append(card);
+      });
+    }
+
+    function searchProducts(query) {
+      $("#loading").show();
+      $.ajax({
+        url: API_URL,
+        method: "GET",
+        data: { q: query },
+        success: function(data) {
+          renderProducts(data);
+        },
+        error: function() {
+          $("#message").text("Error fetching products");
+        },
+        complete: function() {
+          $("#loading").hide();
+        }
+      });
+    }
+
+    $(document).ready(function() {
+      searchProducts("");
+
+      $("#search").on("input", function() {
+        const value = $(this).val();
+        searchProducts(value);
+      });
+    });
+  </script>
+</body>
+</html>

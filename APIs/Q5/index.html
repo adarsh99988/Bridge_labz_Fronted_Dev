@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q5 - College Timetable Viewer</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    select { margin-bottom: 15px; }
+    .class-item { border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px; }
+    .no-classes { color: #555; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>College Timetable Viewer</h1>
+  <label for="day-select">Select Day: </label>
+  <select id="day-select">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </select>
+
+  <div id="timetable"></div>
+
+  <script>
+    const API_URL = "http://localhost:3005/timetable";
+
+    function loadTimetable(day) {
+      fetch(API_URL + "?day=" + encodeURIComponent(day))
+        .then(res => {
+          if (!res.ok) throw new Error("Failed");
+          return res.json();
+        })
+        .then(data => {
+          renderTimetable(data);
+        })
+        .catch(() => {
+          document.getElementById("timetable").innerHTML =
+            "<p class='no-classes'>Error loading timetable.</p>";
+        });
+    }
+
+    function renderTimetable(classes) {
+      const container = document.getElementById("timetable");
+      container.innerHTML = "";
+
+      if (!classes.length) {
+        container.innerHTML = "<p class='no-classes'>No classes today.</p>";
+        return;
+      }
+
+      classes.forEach(cls => {
+        const div = document.createElement("div");
+        div.className = "class-item";
+        div.innerHTML = `
+          <strong>${cls.subject}</strong><br>
+          Faculty: ${cls.faculty}<br>
+          Time: ${cls.time}
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    document.getElementById("day-select").addEventListener("change", function() {
+      loadTimetable(this.value);
+    });
+
+    // Initial load
+    loadTimetable(document.getElementById("day-select").value);
+  </script>
+</body>
+</html>

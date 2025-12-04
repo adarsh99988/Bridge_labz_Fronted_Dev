@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q2 - Employee Status Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; max-width: 600px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f4f4f4; }
+    .active { color: green; font-weight: bold; }
+    .inactive { color: red; font-weight: bold; }
+    .error { color: #c00; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Employee Status Dashboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Toggle</th>
+      </tr>
+    </thead>
+    <tbody id="employee-body"></tbody>
+  </table>
+  <div id="error" class="error"></div>
+
+  <script>
+    const API_URL = "http://localhost:3002/employees";
+
+    function fetchEmployees() {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", API_URL);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          renderEmployees(data);
+        } else {
+          document.getElementById("error").textContent = "Failed to load employees.";
+        }
+      };
+      xhr.onerror = function() {
+        document.getElementById("error").textContent = "Network error.";
+      };
+      xhr.send();
+    }
+
+    function renderEmployees(employees) {
+      const tbody = document.getElementById("employee-body");
+      tbody.innerHTML = "";
+      employees.forEach(emp => {
+        const tr = document.createElement("tr");
+
+        const tdId = document.createElement("td");
+        tdId.textContent = emp.id;
+
+        const tdName = document.createElement("td");
+        tdName.textContent = emp.name;
+
+        const tdStatus = document.createElement("td");
+        tdStatus.textContent = emp.status;
+        tdStatus.className = emp.status === "active" ? "active" : "inactive";
+
+        const tdToggle = document.createElement("td");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = emp.status === "active";
+        checkbox.addEventListener("change", function() {
+          toggleStatus(emp, tdStatus, checkbox);
+        });
+        tdToggle.appendChild(checkbox);
+
+        tr.appendChild(tdId);
+        tr.appendChild(tdName);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdToggle);
+        tbody.appendChild(tr);
+      });
+    }
+
+    function toggleStatus(emp, statusCell, checkbox) {
+      const oldStatus = emp.status;
+      const newStatus = oldStatus === "active" ? "inactive" : "active";
+
+      emp.status = newStatus;
+      statusCell.textContent = newStatus;
+      statusCell.className = newStatus === "active" ? "active" : "inactive";
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("PATCH", API_URL + "/" + emp.id);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          document.getElementById("error").textContent = "";
+        } else {
+          handleError();
+        }
+      };
+      xhr.onerror = handleError;
+      xhr.send(JSON.stringify({ status: newStatus }));
+
+      function handleError() {
+        emp.status = oldStatus;
+        statusCell.textContent = oldStatus;
+        statusCell.className = oldStatus === "active" ? "active" : "inactive";
+        checkbox.checked = oldStatus === "active";
+        document.getElementById("error").textContent =
+          "Failed to update employee status. Reverting changes.";
+      }
+    }
+
+    fetchEmployees();
+  </script>
+</body>
+</html>
